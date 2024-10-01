@@ -54,7 +54,7 @@ def webServer(port=13331):
       connectionSocket.close() #closing the connection socket
       
     except Exception as e:
-      raise RuntimeError('error') from error
+      print(e)
       # Send response message for invalid request due to the file not being found (404)
       # Remember the format you used in the try: block!
       #Close client socket
