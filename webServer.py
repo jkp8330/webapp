@@ -54,7 +54,13 @@ def webServer(port=13331):
       connectionSocket.close() #closing the connection socket
       
     except Exception as e:
-      print(e)
+      #print(e)
+      respProtocol = "HTTP/1.1"
+      respStatus = "404"
+      respStatusText = "Not Found"
+      outputdata = "Content-Type: text/html; charset=UTF-8\r\n"
+      capSentence = respProtocol+" "+ respStatus+" "+respStatusText+" "+outputdata+"\r\n\r\n"
+      #print(capSentence)
       # Send response message for invalid request due to the file not being found (404)
       # Remember the format you used in the try: block!
       #Close client socket
@@ -67,5 +73,5 @@ def webServer(port=13331):
   #serverSocket.close()
   #sys.exit()  # Terminate the program after sending the corresponding data
 
-#if __name__ == "__main__":
-#  webServer(13331)
+if __name__ == "__main__":
+  webServer(13331)
