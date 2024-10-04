@@ -60,6 +60,7 @@ def webServer(port=13331):
       respStatusText = "Not Found"
       outputdata = "Content-Type: text/html; charset=UTF-8\r\n"
       capSentence = respProtocol+" "+ respStatus+" "+respStatusText+" "+outputdata+"\r\n\r\n"
+      connectionSocket.send(capSentence.encode())
       #print(capSentence)
       # Send response message for invalid request due to the file not being found (404)
       # Remember the format you used in the try: block!
